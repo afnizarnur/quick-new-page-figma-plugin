@@ -1,35 +1,56 @@
 import {
   render,
   Container,
-  Text,
   Button,
   Textbox,
+  useForm,
 } from "@create-figma-plugin/ui"
 import styles from "./styles.scss"
-import { h } from "preact"
+import { Fragment, h } from "preact"
 import { useState } from "preact/hooks"
+import { emit, on } from "@create-figma-plugin/utilities"
+import { useEffect } from "preact/hooks"
 
 export default render(Plugin)
 
-function Plugin(props) {
-  const [state, setState] = useState({ foo: "" })
+function Plugin(initialState) {
+  const { state, handleChange, handleSubmit } = useForm(initialState, {
+    onSubmit: function () {
+      emit("SUBMIT", {
+        pagelist: state.pagelist,
+      })
+    },
+    onClose: function () {
+      emit("CLOSE_UI")
+    },
+  })
+  useEffect(
+    function () {
+      return on("SELECTION_CHANGED", function ({ hasSelection }) {
+        handleChange({ hasSelection })
+      })
+    },
+    [handleChange]
+  )
 
   return (
-    <Container space="medium">
-      <div class={styles.container}>
-        <div class={styles.inputwrap}>
-          <Textbox
-            placeholder="Enter list of pages, separated by comma"
-            noBorder
-            name="foo"
-            value={state.foo}
-            onChange={setState}
-            style={styles.biginput}
-            autoFocus
-          />
+    <Fragment>
+      <Container space="medium">
+        <div class={styles.container}>
+          <div class={styles.inputwrap}>
+            <Textbox
+              placeholder="Enter list of pages, separated by comma"
+              noBorder
+              name="pagelist"
+              value={state.pagelist}
+              onChange={handleChange}
+              style={styles.biginput}
+              focused
+            />
+          </div>
+          <Button onClick={handleSubmit}>Add</Button>
         </div>
-        <Button>Add</Button>
-      </div>
-    </Container>
+      </Container>
+    </Fragment>
   )
 }
