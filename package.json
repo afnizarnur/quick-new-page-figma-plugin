@@ -1,0 +1,29 @@
+{
+  "name": "quick-new-page-figma-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "create-figma-plugin",
+    "figma",
+    "figma-plugin"
+  ],
+  "license": "MIT",
+  "author": "Afnizar Nur Ghifari",
+  "dependencies": {
+    "@create-figma-plugin/ui": "0.0.68",
+    "@create-figma-plugin/utilities": "0.0.68",
+    "preact": "^10.4.1"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "0.0.68"
+  },
+  "scripts": {
+    "build": "build-figma-plugin",
+    "watch": "build-figma-plugin --watch"
+  },
+  "figma-plugin": {
+    "id": "quick-new-page-figma-plugin",
+    "name": "Quick New Page",
+    "main": "src/main.js",
+    "ui": "src/ui.js"
+  }
+}
