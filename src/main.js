@@ -1,4 +1,4 @@
-import { showUI, once } from "@create-figma-plugin/utilities"
+import { showUI, once, pluralize } from "@create-figma-plugin/utilities"
 
 export default function () {
   function emojiRandom() {
@@ -11,10 +11,13 @@ export default function () {
       const pageListData = data.pagelist.split(", ")
 
       if (pageListData != "") {
+        const word = pluralize(pageListData.length, "Page")
+
         pageListData.map((item) => {
           figma.createPage().name = item
         })
-        figma.notify(emojiRandom() + "Page added!", { timeout: 2000 })
+
+        figma.notify(emojiRandom() + word + " added!", { timeout: 2000 })
         figma.closePlugin()
       }
     } else {
