@@ -16,7 +16,6 @@ export default render(Plugin)
 function placeholderRandom() {
   var content = [
     "Enter list of pages, separated by comma",
-    "Type a page or multiple pages, separated by comma",
     "Example: Final-v1, Final-v2, Final-Final-v2",
   ]
   return content[Math.floor(Math.random() * content.length)]
