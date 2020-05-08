@@ -13,6 +13,15 @@ import { useEffect } from "preact/hooks"
 
 export default render(Plugin)
 
+function placeholderRandom() {
+  var content = [
+    "Enter list of pages, separated by comma",
+    "Type a page or multiple pages, separated by comma",
+    "Example: Final-v1, Final-v2, Final-Final-v2",
+  ]
+  return content[Math.floor(Math.random() * content.length)]
+}
+
 function Plugin(initialState) {
   const { state, handleChange, handleSubmit } = useForm(initialState, {
     onSubmit: function () {
@@ -39,7 +48,7 @@ function Plugin(initialState) {
         <div class={styles.container}>
           <div class={styles.inputwrap}>
             <Textbox
-              placeholder="Enter list of pages, separated by comma"
+              placeholder={placeholderRandom()}
               noBorder
               name="pagelist"
               value={state.pagelist}

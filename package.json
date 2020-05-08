@@ -21,7 +21,7 @@
     "watch": "build-figma-plugin --watch"
   },
   "figma-plugin": {
-    "id": "quick-new-page-figma-plugin",
+    "id": "840370726679415588",
     "name": "Quick New Page",
     "main": "src/main.js",
     "ui": "src/ui.js"
