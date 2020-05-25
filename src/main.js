@@ -8,7 +8,7 @@ export default function () {
 
   function handleSubmit(data) {
     if (data.pagelist != undefined) {
-      const pageListData = data.pagelist.split(/[ ,]+/)
+      const pageListData = data.pagelist.split(new RegExp("[,]{1}[\\s]?", "g"))
 
       if (pageListData != "") {
         const word = pluralize(pageListData.length, "Page")
