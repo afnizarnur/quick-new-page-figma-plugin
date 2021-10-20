@@ -5,11 +5,12 @@ import {
   Textbox,
   useForm,
 } from "@create-figma-plugin/ui"
-import styles from "./styles.scss"
+import styles from "./styles.css"
 import { Fragment, h } from "preact"
 import { useState } from "preact/hooks"
 import { emit, on } from "@create-figma-plugin/utilities"
 import { useEffect } from "preact/hooks"
+import { useInitialFocus } from "@create-figma-plugin/ui/lib/hooks/use-initial-focus/use-initial-focus"
 
 export default render(Plugin)
 
@@ -47,13 +48,12 @@ function Plugin(initialState) {
         <div class={styles.container}>
           <div class={styles.inputwrap}>
             <Textbox
+              {...useInitialFocus()}
               placeholder={placeholderRandom()}
               noBorder
               name="pagelist"
-              value={state.pagelist}
-              onChange={handleChange}
-              style={styles.biginput}
-              focused
+              value={value}
+              //   onChange={handleChange}
             />
           </div>
           <Button onClick={handleSubmit}>Add</Button>

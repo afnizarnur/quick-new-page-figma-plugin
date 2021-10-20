@@ -1,29 +1,26 @@
 {
-  "name": "quick-new-page-figma-plugin",
-  "version": "1.0.0",
-  "keywords": [
-    "create-figma-plugin",
-    "figma",
-    "figma-plugin"
-  ],
-  "license": "MIT",
-  "author": "Afnizar Nur Ghifari",
   "dependencies": {
-    "@create-figma-plugin/ui": "0.0.68",
-    "@create-figma-plugin/utilities": "0.0.68",
-    "preact": "^10.4.1"
+    "@create-figma-plugin/ui": "^1.6.2",
+    "@create-figma-plugin/utilities": "^1.6.2",
+    "preact": "^10.5.15"
   },
   "devDependencies": {
-    "@create-figma-plugin/build": "0.0.68"
+    "@create-figma-plugin/build": "^1.6.2",
+    "@create-figma-plugin/tsconfig": "^1.6.2",
+    "@figma/plugin-typings": "1.37.0",
+    "typescript": "^4"
   },
   "scripts": {
-    "build": "build-figma-plugin",
-    "watch": "build-figma-plugin --watch"
+    "build": "build-figma-plugin --typecheck --minify",
+    "watch": "build-figma-plugin --typecheck --watch"
   },
   "figma-plugin": {
     "id": "841200074370852792",
+    "editorType": [
+      "figma"
+    ],
     "name": "Quick New Page",
-    "main": "src/main.js",
-    "ui": "src/ui.js"
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx"
   }
 }

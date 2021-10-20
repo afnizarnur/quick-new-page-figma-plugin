@@ -1,19 +1,18 @@
-import { showUI, once, pluralize } from "@create-figma-plugin/utilities"
+import { showUI, once, pluralize } from '@create-figma-plugin/utilities'
 
 export default function () {
   function emojiRandom() {
     var emoji = ["✨", "🚀", "😘", "🥰", "😆", "😎", "⚡️"]
     return emoji[Math.floor(Math.random() * emoji.length)]
   }
-
-  function handleSubmit(data) {
+  function handleSubmit(data: any) {
     if (data.pagelist != undefined) {
       const pageListData = data.pagelist.split(new RegExp("[,]{1}[\\s]?", "g"))
 
       if (pageListData != "") {
         const word = pluralize(pageListData.length, "Page")
 
-        pageListData.map((item) => {
+        pageListData.map((item: any) => {
           figma.createPage().name = item
         })
 

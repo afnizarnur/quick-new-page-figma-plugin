@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputwrap {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 5;
+  margin-right: 12px;
+  font-size: 14px;
+  padding: 0;
+  border: none;
+}
+
