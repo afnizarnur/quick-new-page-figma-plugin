@@ -15,7 +15,13 @@
   flex: 5;
   margin-right: 12px;
   font-size: 14px;
-  padding: 0;
-  border: none;
 }
 
+.inputwrap * {
+  border: none;
+  outline: none;
+}
+
+.inputwrap input {
+  padding: 0;
+}

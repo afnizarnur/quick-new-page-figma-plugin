@@ -1,10 +1,6 @@
-import { showUI, once, pluralize } from '@create-figma-plugin/utilities'
+import { showUI, once, pluralize } from "@create-figma-plugin/utilities"
 
 export default function () {
-  function emojiRandom() {
-    var emoji = ["✨", "🚀", "😘", "🥰", "😆", "😎", "⚡️"]
-    return emoji[Math.floor(Math.random() * emoji.length)]
-  }
   function handleSubmit(data: any) {
     if (data.pagelist != undefined) {
       const pageListData = data.pagelist.split(new RegExp("[,]{1}[\\s]?", "g"))
@@ -16,7 +12,7 @@ export default function () {
           figma.createPage().name = item
         })
 
-        figma.notify(emojiRandom() + word + " added!", { timeout: 2000 })
+        figma.notify(word + " added!", { timeout: 2000 })
         figma.closePlugin()
       }
     } else {
@@ -26,5 +22,5 @@ export default function () {
 
   once("SUBMIT", handleSubmit)
 
-  showUI({ width: 381, height: 56 })
+  showUI({ width: 450, height: 56 })
 }
