@@ -19,6 +19,12 @@
     "editorType": [
       "figma"
     ],
+    "networkAccess": {
+      "allowedDomains": [
+        "none"
+      ]
+    },
+    "documentAccess": "dynamic-page",
     "name": "Quick New Page",
     "main": "src/main.ts",
     "ui": "src/ui.tsx"
