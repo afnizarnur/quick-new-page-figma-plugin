@@ -24,6 +24,9 @@
     "id": "841200074370852792",
     "name": "Quick New Page",
     "main": "src/main.js",
-    "ui": "src/ui.js"
+    "ui": "src/ui.js",
+    "editorType": [
+      "figma"
+    ]
   }
 }
